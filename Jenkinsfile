@@ -20,15 +20,23 @@ pipeline {
                 bat 'pytest'
             }
         }
+
     }
 
     post {
+
         always {
-            archiveArtifacts artifacts: 'reports/*', allowEmptyArchive: true
+            publishHTML([
+                reportDir: 'reports',
+                reportFiles: 'report.html',
+                reportName: 'Automation Test Report'
+            ])
         }
+
         failure {
             echo 'Build Failed'
         }
+
         success {
             echo 'Build Successful'
         }

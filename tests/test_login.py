@@ -1,22 +1,15 @@
-from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
+from pages.login_page import LoginPage
+from config.config import BASE_URL
+
 
 def test_login(browser):
-    wait=WebDriverWait(browser,20)
-    browser.get("https://practicetestautomation.com/practice-test-login/")
 
-    # Enter username 
-    wait.until(EC.visibility_of_element_located((By.XPATH,"//input[@id='username']"))).send_keys("student")
+    browser.get(BASE_URL)
 
-    # Enter Password
-    wait.until(EC.visibility_of_element_located((By.XPATH,"//input[@id='password']"))).send_keys("Password123")
+    login = LoginPage(browser)
 
-    # Click on submit button
-    wait.until(EC.element_to_be_clickable((By.XPATH,"//button[@id='submit']"))).click()
+    login.enter_username("student")
+    login.enter_password("Password123")
+    login.click_submit()
 
-    # assertion for change in url
     assert browser.current_url == "https://practicetestautomation.com/logged-in-successfully/"
-
-
