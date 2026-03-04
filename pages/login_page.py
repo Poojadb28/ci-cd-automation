@@ -3,7 +3,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class LoginPage:
-
     username = (By.ID, "username")
     password = (By.ID, "password")
     submit = (By.ID, "submit")
