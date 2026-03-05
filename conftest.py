@@ -11,7 +11,7 @@ def browser():
     options.add_argument("--disable-dev-shm-usage")
 
     driver = webdriver.Chrome(
-    executable_path="C:\\drivers\\chromedriver\\chromedriver.exe",
+    executable_path="C:\\ProgramData\\Jenkins\\chromedriver.exe",
     options=options
     )
 
