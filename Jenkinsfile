@@ -11,13 +11,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'pip install -r requirements.txt'
+                bat '"C:\\Users\\pooja.db\\AppData\\Local\\Programs\\Python\\Python36\\python.exe" -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'pytest --html=reports/report.html'
+                bat '"C:\\Users\\pooja.db\\AppData\\Local\\Programs\\Python\\Python36\\python.exe" -m pytest'
             }
         }
     }
