@@ -11,7 +11,8 @@ def browser():
     options.add_argument("--disable-dev-shm-usage")
 
     driver = webdriver.Chrome(
-        executable_path="C:\\Users\\pooja.db\\Downloads\\chromedriver-win32\\chromedriver.exe", options=options
+    executable_path="C:\\drivers\\chromedriver\\chromedriver.exe",
+    options=options
     )
 
     yield driver
