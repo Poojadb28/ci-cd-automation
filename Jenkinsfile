@@ -17,28 +17,21 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat 'pytest'
+                bat 'pytest --html=reports/report.html'
             }
         }
-
     }
 
     post {
-
         always {
-            publishHTML([
+            publishHTML(target: [
                 reportDir: 'reports',
                 reportFiles: 'report.html',
-                reportName: 'Automation Test Report'
+                reportName: 'Test Report',
+                keepAll: true,
+                alwaysLinkToLastBuild: true,
+                allowMissing: true
             ])
-        }
-
-        failure {
-            echo 'Build Failed'
-        }
-
-        success {
-            echo 'Build Successful'
         }
     }
 }
