@@ -11,7 +11,7 @@ def browser():
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
 
-    service = Service("C:\Users\pooja.db\Downloads\chromedriver-win32\chromedriver.exe")
+    service = Service("C:\\Users\\pooja.db\\Downloads\\chromedriver-win32\\chromedriver.exe")
     driver = webdriver.Chrome(service=service, options=options)
 
     yield driver
